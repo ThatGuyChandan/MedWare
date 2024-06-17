@@ -54,13 +54,21 @@ const Form = ({ formType }) => {
         });
     }
   };
-
+  const handleRefresExcel = async () => {
+    try {
+      await axios.get("http://localhost:5000/excel-data");
+      alert("excel sheet updated");
+    } catch (error) {
+      console.error("Error updating Google Sheet:", error);
+      alert("Failed to update Google Sheet");
+    }
+  };
   return (
     <div className="form-box">
       <div>
         <h1>{formType}</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="name">
           <label>Name:</label>
           <input
@@ -97,10 +105,15 @@ const Form = ({ formType }) => {
           />
           {errors.phoneNumber && <span>{errors.phoneNumber}</span>}
         </div>
-        <button type="submit" className="btn">
+        <button onClick={handleSubmit} className="btn">
           Submit
         </button>
       </form>
+      <div className="refresh">
+        <button onClick={handleRefresExcel} className="btn">
+          Refresh
+        </button>
+      </div>
     </div>
   );
 };
