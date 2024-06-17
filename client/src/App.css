@@ -4,7 +4,7 @@ body {
 }
 .btn-container {
   text-align: center;
-  margin-top: 20px;
+  margin: 70px;
 }
 .btn-container .btn {
   margin: 5px;
@@ -69,6 +69,10 @@ body {
   color: #ff0000;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.refresh {
+  margin: 4px;
 }
 
 /* Responsive Style */
